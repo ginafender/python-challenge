@@ -13,10 +13,6 @@ with open(files) as csvfile:
         # line = next(csvreader)
         # print(line)
 
-    # add title
-    print("Financial Analysis")
-    print("------------------------------")
-
     # add variables outside the for loop
     months = 0
     nettotals = 0
@@ -50,8 +46,16 @@ with open(files) as csvfile:
                 decMonth = row[0]
 
     # print all statements
-    print(f"Total months: {months}")
-    print(f"Total: ${nettotals}")
-    print(f"Average change: ${avgchg}")
-    print(f"Greatest Increase in Profits: {incMonth} ($ {greatInc})")
-    print(f"Greatest Decrease in Profits: {decMonth} ($ {greatDec})")
+    output = ("Financial Analysis \n")
+    output = output + ("------------------------------ \n")
+    output = output + (f"Total months: {months} \n") 
+    output = output + (f"Total: ${nettotals} \n") 
+    output = output + (f"Average change: ${avgchg} \n") 
+    output = output + (f"Greatest Increase in Profits: {incMonth} ($ {greatInc}) \n") 
+    output = output + (f"Greatest Decrease in Profits: {decMonth} ($ {greatDec}) \n")
+
+    print(output)
+    
+    file_to_output = os.path.join("budget_analysis.txt")
+    with open(file_to_output, "w") as txt_file:
+        txt_file.write(output)
