@@ -54,8 +54,10 @@ with open(files) as csvfile:
     output = output + (f"Greatest Increase in Profits: {incMonth} ($ {greatInc}) \n") 
     output = output + (f"Greatest Decrease in Profits: {decMonth} ($ {greatDec}) \n")
 
+    #print to terminal
     print(output)
     
+    #export to txt file
     file_to_output = os.path.join("budget_analysis.txt")
     with open(file_to_output, "w") as txt_file:
         txt_file.write(output)
